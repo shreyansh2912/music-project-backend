@@ -25,7 +25,7 @@ class UserController extends Controller
                     'password' => $request->password,
                     'role' => 'user'
                 ]);
-                return $request->all();
+                return response()->successJson([],['message'=>'User added'],200);
             }else{
                 return response()->errorJson([],['message'=>'User already exists'],400);
             }
@@ -52,7 +52,7 @@ class UserController extends Controller
                 return response()->errorJson([],['message'=>'Please register first'],400);
             }
         } catch (\Throwable $th) {
-            return response()->errorJson([$th->getMessage()],['message'=>"Something went wrong"],500);
+            return response()->errorJson([],['message'=>"Something went wrong"],500);
         }
     }
 

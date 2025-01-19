@@ -20,5 +20,7 @@ class Auth
                 'message' => 'The requested resource could not be found. Please contact support if the problem persists.'
             ], 404);
         }
+
+        return $next($request);
     }
 }
